@@ -21,9 +21,9 @@ if [ -z $SCALA_BINARY_VERSION ]
 then
     echo "You did not specify the scala version for the test!"
     echo "Syntax : ./test_scala.sh <SCALA_BINARY_VERSION>"
-    echo "Example: ./test_scala.sh 2.11.8"
+    echo "Example: ./test_scala.sh 2.12.15"
     echo " "
-    SCALA_BINARY_VERSION="2.11.8"
+    SCALA_BINARY_VERSION="2.12.15"
     echo "Taking the default SCALA_BINARY_VERSION: $SCALA_BINARY_VERSION"
 fi
 

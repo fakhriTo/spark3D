@@ -41,11 +41,11 @@ SCALA_VERSION = __scala_version__
 SCALA_VERSION_ALL = __scala_version_all__
 
 ASSEMBLY_JAR = \
-    "target/scala-2.11/spark3D-assembly-{}.jar".format(
+    "target\scala-2.12\spark3D-assembly-{}.jar".format(
         __version__)
 # Move the JAR inside the package
 ASSEMBLY_JAR_S = \
-    "pyspark3d/spark3D-assembly-{}.jar".format(
+    "pyspark3d\spark3D-assembly-{}.jar".format(
         __version__)
 
 
@@ -56,19 +56,19 @@ class jar_build(build):
         Override distutils.command.build.
         Compile the companion library and produce a FAT jar.
         """
-        if find_executable('sbt') is None:
+        if find_executable('sbtn-x86_64-pc-win32') is None:
             raise EnvironmentError("""
             The executable "sbt" cannot be found.
             Please install the "sbt" tool to build the companion jar file.
             """)
 
         build.run(self)
-        subprocess.check_call(
-            "sbt 'set test in assembly := {{}}' ++{} assembly".format(
-                SCALA_VERSION_ALL), shell=True)
+        
+        cmd_str = "sbt \"set test in assembly := {{}}\" assembly";
+        subprocess.check_call(cmd_str, shell=True)
 
         subprocess.check_call(
-            "cp {} {}".format(
+            "copy {} {}".format(
                 ASSEMBLY_JAR, ASSEMBLY_JAR_S), shell=True)
 
 

@@ -23,7 +23,7 @@ if [ -z $SCALA_BINARY_VERSION ]
 then
     echo "You did not specify the scala version for the test!"
     echo "Syntax : ./test_python.sh <SCALA_BINARY_VERSION>"
-    echo "Example: ./test_python.sh 2.11.8"
+    echo "Example: ./test_python.sh 2.12.15"
     echo " "
     SCALA_BINARY_VERSION=`python -c "from pyspark3d import version; print(version.__scala_version_all__)"`
     SCALA_VERSION=`python -c "from pyspark3d import version; print(version.__scala_version__)"`

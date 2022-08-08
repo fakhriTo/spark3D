@@ -20,8 +20,8 @@ git tag <name>
 git push origin --tags
 
 ## Maven - Scala 2.11
-sbt ++2.11.8 publishSigned
-sbt ++2.11.8 sonatypeRelease
+sbt ++2.12.15 publishSigned
+sbt ++2.12.15 sonatypeRelease
 
 ## pypi
 python setup.py sdist bdist_wheel
